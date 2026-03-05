@@ -1,4 +1,4 @@
-# Projeto TelecomX - Documentação
+# Projeto TelecomX
 
 ## Estrutura do Projeto
 O projeto está organizado para execução em ambiente Google Colab, seguindo o layout abaixo:
@@ -96,3 +96,143 @@ Utilizamos o método de **Spearman** para analisar a relação entre essas novas
 - **Qtd_Servicos vs Churn**: Observamos uma correlação negativa significativa. A análise visual via gráfico de barras demonstrou que clientes com 0 ou 1 serviço têm taxas de evasão drasticamente superiores àqueles que possuem 6 ou 7 serviços.
 - **Insight Quantitativo**: Clientes com uma cesta de serviços mais completa tendem a ser mais fiéis. Isso sugere que estratégias de *cross-selling* (venda cruzada) são fundamentais para aumentar a retenção.
 - **Contas Diárias**: Embora correlacionada ao gasto mensal, a visão diária auxilia na identificação de faixas de preço críticas onde a densidade de churn aumenta.
+
+
+# 📊 TelecomX - Análise de Churn de Clientes
+
+Este projeto realiza uma análise completa de dados (ETL + EDA) utilizando o dataset da **TelecomX**, com o objetivo de identificar os principais fatores que levam clientes a cancelarem seus serviços (*Churn*).
+
+O projeto envolve etapas de **extração, tratamento, transformação e análise exploratória de dados**, preparando o dataset para possíveis modelos de Machine Learning de previsão de churn.
+
+---
+
+# 🎯 Objetivo
+
+O objetivo deste projeto é analisar o comportamento dos clientes e identificar padrões que expliquem o cancelamento de serviços.
+
+A partir da análise, buscamos responder perguntas como:
+
+- Quais características estão mais associadas ao churn?
+- Clientes com mensalidades maiores cancelam mais?
+- O tipo de contrato influencia na permanência do cliente?
+- Serviços adicionais reduzem a probabilidade de cancelamento?
+
+---
+
+# 📂 Dataset
+
+O dataset contém informações de clientes de uma empresa fictícia de telecomunicações, incluindo:
+
+- Informações demográficas
+- Tipo de contrato
+- Serviços contratados
+- Forma de pagamento
+- Valor mensal e total de cobrança
+- Status de cancelamento (*Churn*)
+
+Os dados estão estruturados originalmente em **JSON**, contendo informações aninhadas que foram normalizadas durante o processo de tratamento.
+
+---
+
+# 🛠 Tecnologias Utilizadas
+
+As seguintes ferramentas foram utilizadas no projeto:
+
+- **Python**
+- **Pandas**
+- **NumPy**
+- **Matplotlib**
+- **Seaborn**
+- **Scikit-learn**
+- **Google Colab**
+
+---
+
+# ⚙️ Processo de Análise
+
+O projeto foi dividido nas seguintes etapas:
+
+### 1️⃣ Extração
+
+- Carregamento do dataset no formato **JSON**
+- Conversão para estrutura tabular utilizando **Pandas**
+
+### 2️⃣ Transformação e Limpeza de Dados
+
+- Normalização de dados aninhados
+- Remoção de espaços em branco
+- Tratamento de valores ausentes
+- Conversão de tipos de dados
+- Padronização de colunas
+
+### 3️⃣ Engenharia de Variáveis
+
+Criação de novas métricas para enriquecer a análise:
+
+- `Contas_Diarias` → valor mensal dividido por 30
+- `Qtd_Servicos` → quantidade de serviços contratados pelo cliente
+
+### 4️⃣ Análise Exploratória (EDA)
+
+Foram analisados:
+
+- Distribuição das variáveis
+- Relação entre variáveis categóricas e churn
+- Correlação entre variáveis numéricas
+- Padrões de cancelamento
+
+---
+
+# 🔍 Principais Insights
+
+A análise revelou alguns padrões importantes:
+
+### 💰 Fatores Financeiros
+Clientes com **mensalidades mais altas apresentam maior taxa de churn**.
+
+### 📄 Tipo de Contrato
+Clientes com contratos **"Mês a Mês"** possuem uma probabilidade muito maior de cancelamento quando comparados a contratos anuais ou bianuais.
+
+### 🛠 Serviços Adicionais
+Clientes que **não possuem serviços como suporte técnico ou segurança online** apresentam maior tendência a cancelar.
+
+---
+
+# 🚀 Como Executar o Projeto
+
+Para executar este projeto no **Google Colab**, siga os passos abaixo:
+
+1. Abra o notebook `.ipynb` no **Google Colab**  
+2. Faça upload do arquivo **TelecomX_Data.json** para a pasta `/content/`
+3. Execute as células sequencialmente:
+
+As bibliotecas utilizadas já estão disponíveis no ambiente padrão do Colab.
+
+---
+
+# 📈 Resultado do Tratamento de Dados
+
+Após o processo de limpeza e transformação, o dataset final apresenta:
+
+- ✅ Dados sem duplicações
+- ✅ Sem valores vazios ou inconsistentes
+- ✅ Variáveis categóricas convertidas para formatos numéricos/binários
+- ✅ Novas variáveis criadas para melhorar futuras análises
+
+O dataset final está **pronto para ser utilizado em modelos de Machine Learning de classificação para previsão de churn**.
+
+---
+
+# 🏁 Conclusão
+
+A análise exploratória permitiu identificar fatores relevantes relacionados ao cancelamento de clientes.
+
+Esses insights podem ajudar empresas de telecomunicação a:
+
+- Melhorar estratégias de retenção
+- Criar planos mais adequados aos clientes
+- Reduzir a taxa de churn
+
+O próximo passo natural seria aplicar **modelos de Machine Learning** para prever automaticamente quais clientes possuem maior risco de cancelamento.
+
+---
